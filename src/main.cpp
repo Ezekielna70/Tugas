@@ -118,7 +118,7 @@ int main()
 				
 			}
 				break;
-				//haloooooo
+				
 			case 2:
 			{
 				int dd, mm, yy;
