@@ -1,0 +1,26 @@
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+============================Laporan Sementara==================================
+============Ezekiel Walfred E P N----5024211038----Teknik Komputer=============
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+->memperbaharui menu awal agar lebih menarik seperti nama universitas dan lain-lain
+->menambahkan beberapa opsi tambahan di menu
+->pengguna diminta untuk memasukkan password dan username sblm bisa masuk
+->Pengguna diminta untuk memilih opsi di menu
+->jika di menu dipilih nomor 1-3, maka pengguna diminta untuk memasukan data
+->jika di menu dipilih nomor 4-6, maka data yang sudah diinput akan dikeluarkan/ditunjukan semua dan dibatasi dengan vector.size()
+->jika di menu dipilih nomor 7, maka user akan bisa mengubah data yang sudah diinputkan
+->jika di menu dipilih nomor 8, maka user akan bisa mengubah username dan password
+->jika di menu dipilih nomor 9, maka user akan mengulangi proses dari awal
+->jika di menu dipilih nomor 10, maka user akan end programme
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+catatan tambahan
+-> ditambahkann #include <string> , #include <conio.h>, cin.ignore(), getline(cin,nama), system("cls")
+agar dapat menggunakan getch dan menginput string dengan spasi
+-> memanggil class mahasiswa/dosen/tendik untuk memasukan input dengan melemparkan input tersebut ke class 
+yang sudah ditentukan(ditambahkan parameter dan constructor agar bisa menerima input yang lebih banyak lagi serta bisa 
+melakukan semakin banyak hal)
+-> push_back(objective) untuk ditambahkan jumlahnya
+-> untuk case di menu ke 7, digunakan set*** untuk mengubah data yang sudah dimasukan
+-> pada .cpp .hpp ditambahkan beberapa fungsi agar program dapat berjalan dengan baik
+
