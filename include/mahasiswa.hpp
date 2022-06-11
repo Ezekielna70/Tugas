@@ -4,8 +4,9 @@
 
 #include <iostream>
 #include "include/person.hpp"
+#include "include/matkul.hpp"
 
-class mahasiswa : public person {
+class mahasiswa : public person{
 private:
 	std::string nrp;
 	std::string departemen;

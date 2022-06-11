@@ -8,6 +8,7 @@
 #include "include/mahasiswa.hpp"
 #include "include/dosen.hpp"
 #include "include/tendik.hpp"
+#include "include/matkul.hpp"
 
 
 void UsernamePassword();//function void
@@ -22,6 +23,7 @@ int main()
 	vector<mahasiswa> recMhs;
 	vector<dosen> recDosen;
 	vector<tendik> recTendik;
+	vector<matkul> recMatkul;
 
 	int menu_terpilih;
 	
@@ -41,18 +43,21 @@ int main()
 		cout << "  1. Jumlah Mahasiswa             : " << recMhs.size() << " mahasiswa" << endl;
 		cout << "  2. Jumlah Dosen                 : " << recDosen.size() << " dosen" << endl;
 		cout << "  3. Jumlah Tenaga Kependidikan   : " << recTendik.size() << " tenaga kependidikan" << endl;
+		cout << "  4. Jumlah Mata Kuliah           : " << recMatkul.size() << " mata kuliah" << endl;
 		cout << endl;
 		cout << "Menu: " << endl;
 		cout << "  1. \tTambah Mahasiswa" << endl;
 		cout << "  2. \tTambah Dosen" << endl;
 		cout << "  3. \tTambah Tenaga Kependidikan" << endl;
-		cout << "  4. \tTampilkan semua Mahasiswa" << endl;
-		cout << "  5. \tTampilkan semua Dosen" << endl;
-		cout << "  6. \tTampilkan semua Tenaga Kependidikan" << endl;
-		cout << "  7. \tUpdate Data" << endl;//opsi edit data
-		cout << "  8. \tEdit Username dan Password" << endl;//opsi edit password yang sudah ada
-		cout << "  9. \tLog Out" << endl;//opsi log out
-		cout << "  10.\tKeluar Program"<< endl;
+		cout << "  4. \tTambah Mata Kuliah" << endl;
+		cout << "  5. \tTampilkan semua Mahasiswa" << endl;
+		cout << "  6. \tTampilkan semua Dosen" << endl;
+		cout << "  7. \tTampilkan semua Tenaga Kependidikan" << endl;
+		cout << "  8. \tTampilkan semua Mata Kuliah" << endl;
+		cout << "  9. \tUpdate Data" << endl;//opsi edit data
+		cout << "  10. \tEdit Username dan Password" << endl;//opsi edit password yang sudah ada
+		cout << "  11. \tLog Out" << endl;//opsi log out
+		cout << "  12. \tKeluar Program"<< endl;
 		cout << "-> Silahkan memilih salah satu: ";
 		cin >> menu_terpilih;
 		cin.ignore();
@@ -194,6 +199,29 @@ int main()
 				break;
 			case 4:
 			{
+				int sks ;
+				string id, nama, code;
+
+				stringstream ss;//sama seperti di case 1
+				ss << 1 + recMatkul.size();
+				id = ss.str();
+
+				cout << "Nama Mata Kuliah: ";
+				getline(cin, nama);
+
+				cout << "Kode Mata Kuliah: ";
+				getline(cin, code);
+
+				cout << "SKS: ";
+				cin >> sks;
+
+				matkul matkul(id, nama, sks, code);
+				recMatkul.push_back(matkul);
+				system ("cls");
+			}
+				break;
+			case 5:
+			{
 				cout << endl;
 				for(unsigned long i=0; i< recMhs.size(); i++)// loop untuk mengeluarkan semua data mahasiswa
 				{
@@ -241,7 +269,7 @@ int main()
 				}
 			}
 				break;
-			case 5:
+			case 6:
 			{	//sama seperti case 4
 				cout << endl;
 				for(unsigned long i=0; i< recDosen.size(); i++)
@@ -287,7 +315,7 @@ int main()
 				}
 			}
 				break;
-			case 6:
+			case 7:
 			{	// sama seperti case 4
 				cout << endl;
 				for(unsigned long i=0; i< recTendik.size(); i++)
@@ -332,12 +360,50 @@ int main()
 				}
 			}
 				break;
-			case 7:
+			case 8:
+			{
+				cout << endl;
+				for(unsigned long i=0; i< recMatkul.size(); i++)
+				{
+					cout<<"===================================================================="<<endl;
+					cout << "ID: ";
+					string simple = recMatkul[i].getId();
+					stringstream id_int(simple);
+					int count = 0;
+					id_int >> count;
+					int hitung = 6;
+					int x=0;
+					while (true)
+					{
+						int hasil = count / 10;
+
+						if(hasil==0)
+							break;
+						x++;
+					}
+
+					for(int j=0; j<hitung-x; j++)
+					{
+						cout << "0";
+					}
+					cout << recMatkul[i].getId()<< endl;
+
+					cout << "Nama Mata Kuliah: " << recMatkul[i].getNama() << endl;
+
+					cout << "Kode Mata Kuliah: "<< recMatkul[i].getCode() << endl;
+					cout << "SKS: "<< recMatkul[i].getsks() << endl;
+					cout << endl;
+					cout<<"===================================================================="<<endl;
+				}
+			}
+				break;
+			case 9:
 			{
 				system("cls");
 				cout << "  1. Update Data Mahasiswa" << endl;//memberi opsi data yang mau diubah
 				cout << "  2. Update Data Dosen" << endl;
 				cout << "  3. Update Data Tenaga Kependidikan" << endl;
+				cout << "  4. Update Data Mata Kuliah" << endl;
 				cout << "  Pilihan: ";
 				int bukalapak;
 				cin >> bukalapak;
@@ -572,10 +638,66 @@ int main()
 						system("cls");
 
 					}
+					case 4:
+					{
+						system("cls");
+						for(unsigned long i=0; i< recMatkul.size(); i++)
+						{
+							cout<<"===================================================================="<<endl;
+							cout << "ID: ";
+							string simple = recMatkul[i].getId();
+							stringstream id_int(simple);
+							int count = 0;
+							id_int >> count;
+							int hitung = 6;
+							int x=0;
+							while (true)
+							{
+								int hasil = count / 10;
+
+								if(hasil==0)
+									break;
+								x++;
+							}
+
+							for(int j=0; j<hitung-x; j++)
+							{
+								cout << "0";
+							}
+							cout << recMatkul[i].getId()<< endl;
+
+							cout << "Nama Mata Kuliah: " << recMatkul[i].getNama() << endl;
+							cout<<"===================================================================="<<endl;
+						}
+
+							long zz;
+							cout << "ID Mata Kuliah yang mau diperbaharui: ";
+							cin >> zz;
+							zz --;
+
+							int sks;
+							string nama4, code;
+
+							cout << "Nama: ";
+							cin.ignore();
+							getline(cin, nama4);
+							recMatkul[zz].setNama(nama4);
+
+							cout << "Kode Mata Kuliah: ";
+							cin >> code;
+							recMatkul[zz].setCode(code);
+
+							cout << "SKS: ";
+							cin >> sks;
+							recMatkul[zz].setsks(sks);
+						
+						system("cls");
+					}
+						break;
 				}
 			}
 				break;
-			case 8:
+			case 10:
 			{
 				system("cls");
 				cout << "Enter Old Username and Password" << endl;
@@ -584,7 +706,7 @@ int main()
 
 			}
 				break;
-			case 9:
+			case 11:
 			{
 				system("cls");
 				cout<<"===================================================================="<<endl;
@@ -594,7 +716,7 @@ int main()
 
 			}
 				break;
-			case 10:
+			case 12:
 			{
 				return 0;//keluar dari program
 			}
